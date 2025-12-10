@@ -5,7 +5,7 @@
 
 ![SenseSaaS Banner](banner.png)
 
-SenseSaaS is a universal alternative interface designed to revolutionize the way users interact with SaaS platforms. It provides a conversational interface for users to interact with SaaS applications. By serving as an intelligent add-on layer, it completely eliminates the need for users to navigate through complex traditional interfaces. 
+SenseSaaS is a universal AI Agent Interface designed to revolutionize how users interact with SaaS platforms. By serving as an intelligent add-on layer, it completely eliminates the learning curve associated with complex software, allowing users to navigate, query, and operate any application using natural language.
 
 > **Note**: This repository serves as a reference implementation of the Agentic Framework, demonstrated here using a **Retail Analytics** domain. The core architecture is domain-agnostic and can be adapted to any SaaS vertical (CRM, ERP, HRM, Field Service, etc.).
 
