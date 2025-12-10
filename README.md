@@ -3,7 +3,7 @@
 **Making SaaS Accessible for Everyone**
 
 
-![SenseSaaS Banner](banner.png)
+![SenseSaaS Banner](images/banner.png)
 
 SenseSaaS is a universal AI Agent Interface designed to revolutionize how users interact with SaaS platforms. By serving as an intelligent add-on layer, it completely eliminates the learning curve associated with complex software, allowing users to navigate, query, and operate any application using natural language.
 
@@ -194,13 +194,29 @@ SenseSaaS implements multiple layers of security to protect against misuse and d
 ---
 
 ## 📸 Screenshots
+### 💬 Chat Interface
+*Natural language queries with formatted results*
+<p align="center">
+  <img src="images/chat1.png" alt="Chat Interface 1" width="100%">
+  <br><br>
+  <img src="images/chat2.png" alt="Chat Interface 2" width="100%">
+</p>
 
-*(Placeholders — replace with actual screenshots)*
+### 📊 Data Visualization
+*Interactive ECharts visualizations*
+<p align="center">
+  <img src="images/chart1.png" alt="Chart Interface 1" width="100%">
+  <br><br>
+  <img src="images/chart2.png" alt="Chart Interface 2" width="100%">
+  <br><br>
+  <img src="images/chart3.png" alt="Chart Interface 3" width="100%">
+</p>
 
-| Chat Interface | Data Visualization | Log Viewer |
-|:---:|:---:|:---:|
-| ![Chat UI](https://via.placeholder.com/300x200?text=Chat+Interface) | ![Chart UI](https://via.placeholder.com/300x200?text=Data+Visualization) | ![Logs UI](https://via.placeholder.com/300x200?text=Log+Viewer) |
-| *Natural language queries with formatted results* | *Interactive ECharts visualizations* | *Real-time agent activity logs* |
+### 📝 Log Viewer
+*Real-time agent activity logs*
+<p align="center">
+  <img src="images/auditlogs.png" alt="Log Viewer" width="100%">
+</p>
 
 ---
 
