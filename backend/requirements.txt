@@ -1,0 +1,31 @@
+# Core Frameworks
+langchain
+langchain_community
+langchain-openai
+langgraph
+fastapi
+uvicorn
+pydantic
+python-multipart
+jinja2
+python-dotenv
+
+# Database and Data Handling
+pandas
+sqlalchemy
+pyodbc
+openpyxl 
+
+# Utilities
+pyyaml
+rich
+httpx
+sqlparse
+
+# Web Server
+uvicorn[standard]
+python-jose[cryptography]
+passlib[bcrypt]
+
+# Python notebook
+ipykernel

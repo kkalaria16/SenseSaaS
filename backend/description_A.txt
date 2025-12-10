@@ -1,0 +1,49 @@
+This database supports the SenseSaaS Retail Analytics platform. It organizes information around Customers, Products, Orders, and Reviews, enabling comprehensive analysis of sales performance and customer behavior.
+
+GLOBAL SCHEMA NOTES:
+- **Multi-tenancy**: All tables include a `CompanyId` column. Data MUST be filtered by `CompanyId` for the current tenant.
+- **Soft Deletes**: All tables include an `IsDeleted` column. Records with `IsDeleted = 1` should be excluded from active queries.
+
+Key entities include:
+- **Customers**: Individuals who purchase products.
+- **Products**: Items available for sale, categorized by type.
+- **Orders**: Transactions made by customers, including status and totals.
+- **OrderItems**: Detailed line items for each order.
+- **Reviews**: Customer feedback and ratings for products.
+- **Inventory**: Stock levels for products across different locations.
+
+IMPORTANT BUSINESS LOGIC:
+- **Revenue**: Calculated as the sum of `TotalAmount` from the `Orders` table where `Status` is 'Completed'.
+- **Customer LTV**: Sum of `TotalAmount` for all completed orders for a specific customer.
+- **Top Selling Products**: Determined by summing `Quantity` in `OrderItems` joined with `Orders` (completed).
+- **Date Handling**: All dates are stored in UTC.
+
+# Customers
+Description: Stores customer profiles including contact info and joining date.
+PK: CustomerId
+FKs: CompanyId
+
+# Products
+Description: Catalog of products with pricing and category information.
+PK: ProductId
+FKs: CompanyId
+
+# Orders
+Description: Transactional records of customer purchases.
+PK: OrderId
+FKs: CustomerId -> Customers(CustomerId), CompanyId
+
+# OrderItems
+Description: Individual items within an order.
+PK: OrderItemId
+FKs: OrderId -> Orders(OrderId), ProductId -> Products(ProductId), CompanyId
+
+# Reviews
+Description: Product reviews and ratings submitted by customers.
+PK: ReviewId
+FKs: ProductId -> Products(ProductId), CustomerId -> Customers(CustomerId), CompanyId
+
+# Inventory
+Description: Current stock levels for products.
+PK: InventoryId
+FKs: ProductId -> Products(ProductId), CompanyId

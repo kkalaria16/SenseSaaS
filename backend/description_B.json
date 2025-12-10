@@ -1,0 +1,332 @@
+{
+    "Customers": {
+        "description": "Stores customer profiles including contact info and joining date.",
+        "columns": [
+            {
+                "Column Name": "CustomerId",
+                "Data Type": "int",
+                "constraints": "PK",
+                "description": "Unique identifier for the customer."
+            },
+            {
+                "Column Name": "CompanyId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Multi-tenancy identifier."
+            },
+            {
+                "Column Name": "FirstName",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Customer's first name."
+            },
+            {
+                "Column Name": "LastName",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Customer's last name."
+            },
+            {
+                "Column Name": "Email",
+                "Data Type": "nvarchar",
+                "constraints": "UNIQUE",
+                "description": "Customer's email address."
+            },
+            {
+                "Column Name": "Phone",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Customer's phone number."
+            },
+            {
+                "Column Name": "Address",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Customer's shipping address."
+            },
+            {
+                "Column Name": "City",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "City of residence."
+            },
+            {
+                "Column Name": "Country",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Country of residence."
+            },
+            {
+                "Column Name": "JoinedDate",
+                "Data Type": "datetime",
+                "constraints": "",
+                "description": "Date when the customer created their account."
+            },
+            {
+                "Column Name": "IsDeleted",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Soft delete flag (0 = Active, 1 = Deleted)."
+            }
+        ]
+    },
+    "Products": {
+        "description": "Catalog of products with pricing and category information.",
+        "columns": [
+            {
+                "Column Name": "ProductId",
+                "Data Type": "int",
+                "constraints": "PK",
+                "description": "Unique identifier for the product."
+            },
+            {
+                "Column Name": "CompanyId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Multi-tenancy identifier."
+            },
+            {
+                "Column Name": "Name",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Name of the product."
+            },
+            {
+                "Column Name": "Category",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Category the product belongs to (e.g., Electronics, Clothing)."
+            },
+            {
+                "Column Name": "Price",
+                "Data Type": "decimal(18, 2)",
+                "constraints": "",
+                "description": "Selling price of the product."
+            },
+            {
+                "Column Name": "Cost",
+                "Data Type": "decimal(18, 2)",
+                "constraints": "",
+                "description": "Cost to acquire/manufacture the product."
+            },
+            {
+                "Column Name": "Description",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Detailed description of the product."
+            },
+            {
+                "Column Name": "IsActive",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Indicates if the product is currently available for sale."
+            },
+            {
+                "Column Name": "IsDeleted",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Soft delete flag (0 = Active, 1 = Deleted)."
+            }
+        ]
+    },
+    "Orders": {
+        "description": "Transactional records of customer purchases.",
+        "columns": [
+            {
+                "Column Name": "OrderId",
+                "Data Type": "int",
+                "constraints": "PK",
+                "description": "Unique identifier for the order."
+            },
+            {
+                "Column Name": "CompanyId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Multi-tenancy identifier."
+            },
+            {
+                "Column Name": "CustomerId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Reference to the customer who placed the order."
+            },
+            {
+                "Column Name": "OrderDate",
+                "Data Type": "datetime",
+                "constraints": "",
+                "description": "Date and time the order was placed."
+            },
+            {
+                "Column Name": "Status",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Current status of the order (e.g., Pending, Completed, Cancelled)."
+            },
+            {
+                "Column Name": "TotalAmount",
+                "Data Type": "decimal(18, 2)",
+                "constraints": "",
+                "description": "Total value of the order including tax and shipping."
+            },
+            {
+                "Column Name": "ShippingAddress",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Address where the order was shipped."
+            },
+            {
+                "Column Name": "IsDeleted",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Soft delete flag (0 = Active, 1 = Deleted)."
+            }
+        ]
+    },
+    "OrderItems": {
+        "description": "Detailed line items for each order.",
+        "columns": [
+            {
+                "Column Name": "OrderItemId",
+                "Data Type": "int",
+                "constraints": "PK",
+                "description": "Unique identifier for the order item."
+            },
+            {
+                "Column Name": "CompanyId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Multi-tenancy identifier."
+            },
+            {
+                "Column Name": "OrderId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Reference to the order this item belongs to."
+            },
+            {
+                "Column Name": "ProductId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Reference to the product purchased."
+            },
+            {
+                "Column Name": "Quantity",
+                "Data Type": "int",
+                "constraints": "",
+                "description": "Number of units purchased."
+            },
+            {
+                "Column Name": "UnitPrice",
+                "Data Type": "decimal(18, 2)",
+                "constraints": "",
+                "description": "Price per unit at the time of purchase."
+            },
+            {
+                "Column Name": "IsDeleted",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Soft delete flag (0 = Active, 1 = Deleted)."
+            }
+        ]
+    },
+    "Reviews": {
+        "description": "Product reviews and ratings submitted by customers.",
+        "columns": [
+            {
+                "Column Name": "ReviewId",
+                "Data Type": "int",
+                "constraints": "PK",
+                "description": "Unique identifier for the review."
+            },
+            {
+                "Column Name": "CompanyId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Multi-tenancy identifier."
+            },
+            {
+                "Column Name": "ProductId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Reference to the product being reviewed."
+            },
+            {
+                "Column Name": "CustomerId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Reference to the customer who wrote the review."
+            },
+            {
+                "Column Name": "Rating",
+                "Data Type": "int",
+                "constraints": "",
+                "description": "Rating given (1-5)."
+            },
+            {
+                "Column Name": "Comment",
+                "Data Type": "nvarchar",
+                "constraints": "",
+                "description": "Text content of the review."
+            },
+            {
+                "Column Name": "ReviewDate",
+                "Data Type": "datetime",
+                "constraints": "",
+                "description": "Date the review was posted."
+            },
+            {
+                "Column Name": "IsDeleted",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Soft delete flag (0 = Active, 1 = Deleted)."
+            }
+        ]
+    },
+    "Inventory": {
+        "description": "Current stock levels for products.",
+        "columns": [
+            {
+                "Column Name": "InventoryId",
+                "Data Type": "int",
+                "constraints": "PK",
+                "description": "Unique identifier for the inventory record."
+            },
+            {
+                "Column Name": "CompanyId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Multi-tenancy identifier."
+            },
+            {
+                "Column Name": "ProductId",
+                "Data Type": "int",
+                "constraints": "FK",
+                "description": "Reference to the product."
+            },
+            {
+                "Column Name": "QuantityOnHand",
+                "Data Type": "int",
+                "constraints": "",
+                "description": "Current quantity in stock."
+            },
+            {
+                "Column Name": "ReorderLevel",
+                "Data Type": "int",
+                "constraints": "",
+                "description": "Threshold quantity to trigger reordering."
+            },
+            {
+                "Column Name": "LastUpdated",
+                "Data Type": "datetime",
+                "constraints": "",
+                "description": "Timestamp of the last stock update."
+            },
+            {
+                "Column Name": "IsDeleted",
+                "Data Type": "bit",
+                "constraints": "",
+                "description": "Soft delete flag (0 = Active, 1 = Deleted)."
+            }
+        ]
+    }
+}

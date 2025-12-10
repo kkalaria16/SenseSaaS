@@ -1,0 +1,25 @@
+# Ignore node_modules
+node_modules
+
+# Ignore venv
+.venv
+
+# Ignore environment variables
+.env
+
+# Ignore __pycache__
+__pycache__
+
+# Ignore .vscode
+.vscode
+.windsurf
+
+# Ignore setup files
+pyproject.toml
+uv.lock
+package-lock.json
+
+# Ignore logs
+logs
+
+# Ignore experimental files
